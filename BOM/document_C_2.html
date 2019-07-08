@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Examples</title>
+
+</head>
+<body>
+
+<div>
+	現在位置 : <span id="curPos" > </span>
+</div>
+<br>
+
+搜尋<input type="text" name="sData"><input type="submit" value="查詢"><br>
+
+
+<script type="text/javascript">
+function $(id){
+	var obj = document.getElementById(id);
+	obj.html = function(htmlStr){
+		obj.innerHTML = htmlStr;
+	}
+	return obj;
+}
+
+
+//------------找到物件的參考	
+// var obj = document.getElementById("curPos");
+
+// //改變內容
+// obj.innerHTML = "首頁>>商品專區>><i>今天66折</i>";
+
+
+
+
+$("curPos").html("首頁>>商品專區>><i>今天33折</i>");
+
+	
+</script>
+</body>
+</html>

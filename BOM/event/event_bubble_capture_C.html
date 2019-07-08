@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Examples</title>
+</head>
+<body id="myBody">
+<p>1111111111</p>
+<p>1111111111</p>
+<p>1111111111</p>  
+<form id="myForm">
+	<p>22222222222</p>
+	<p>22222222222</p>
+	<p>22222222222</p>
+	<input type="button" value="click me" id="btn">
+</form>  
+
+
+<script type="text/javascript">
+function $id(id){
+	return document.getElementById(id);
+}
+
+function btn_click(e){
+	alert("button被按~");
+}
+
+function myForm_click(){
+	alert("form 被按~");
+}
+
+function myBody_click(e){
+	alert("body 被按~");
+	e.stopPropagation();
+}
+
+function init(){
+	$id("btn").addEventListener("click", btn_click, false) ;
+	$id("myForm").addEventListener("click", myForm_click, true) ;
+	$id("myBody").addEventListener("click", myBody_click, true) ;
+}
+
+window.addEventListener("load", init, false)	
+</script>
+</body>
+</html>

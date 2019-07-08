@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Examples</title>
+</head>
+<body>
+<h2>arguments</h2>	
+<script type="text/javascript">
+function sum(a, b){
+	var total = 0;
+	total = a + b;
+	return total;
+}
+
+function sum(a,b,c){  //a:10, b:20, c:30 , arguments:[10,20,30,40,50], arguments.length:5
+	var total = 0;
+	// total = a+b+c; //error
+	arguments.push(1000); //error
+
+	for( var i=0; i<arguments.length; i++){
+		total = total + arguments[i];
+	}
+	return total;
+}
+
+document.write( "10+20 = ", sum(10,20), "<br>"); 
+document.write( "10+20+30 = ", sum(10,20,30), "<br>");
+document.write( "10+20+30+40 = ", sum(10,20,30,40), "<br>"); 
+document.write( "10+20+30+40+50 = ", sum(10,20,30,40,50), "<br>"); //....
+</script> 
+<hr>
+<h2>預設參數值 : ES6</h2>
+<script type="text/javascript">
+function sayHello(word="Hello~"){
+	document.write( word, "<br>");
+}
+sayHello();
+sayHello("Hi.............");
+</script>  
+
+<h2>預設參數值 : ES5</h2>
+<script type="text/javascript">
+function sayHello(word){
+	word = word || "大家好~~";
+	document.write( word, "<br>");
+}
+sayHello();
+sayHello("午安.............");
+</script> 
+
+<hr>
+<h2>es6</h2>
+<script type="text/javascript">
+function sum(a=0, b=0, c=0, d=0){  
+    total = a+b+c+d;
+	return total;
+}
+document.write(sum(10,20), "<br>");	
+</script>
+
+<h2>es5</h2>
+<script type="text/javascript">
+function sum(a, b, c, d){  
+    a = a || 0;
+    b = b || 0;
+    c = c || 0;
+    d = d || 0;
+
+    total = a+b+c+d;
+	return total;
+}
+document.write(sum(10,20), "<br>");	
+</script>
+
+
+<h2>避免和window所提供的方法同名</h2>
+<script type="text/javascript">
+var mm = "巧克力";
+document.write( mm, "<br>");	
+document.write( window.mm, "<br>");	//mm 也可以透過window.mm來存取
+
+function alert(msg){
+	document.write( msg, "<br>");
+}
+alert("Hi~~~~~~~~~"); //會覆寫掉原window.alert()的方法
+</script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Examples</title>
+<style type="text/css">
+	h2 {
+		color:blue;
+	}
+</style>
+</head>
+<body>
+<h2>產生陣列</h2>
+<script type="text/javascript">
+var arr = new Array(11,22,33);
+
+for( var i=0; i<5; i++){
+	document.write( arr[i], "<br>");
+}
+</script>    
+
+
+<h2>陣列 length</h2>
+<script type="text/javascript">
+var arr = new Array(11,22,33);
+
+for( var i=0; i < arr.length; i++){
+	document.write( arr[i], "<br>");
+}
+</script>
+
+
+<h2>陣列 length</h2>
+<script type="text/javascript">
+var arr = new Array(11,22,33);
+arr[6] = 100;
+
+for( var i=0; i < arr.length; i++){
+	document.write( arr[i], "<br>");
+}
+</script>  
+
+
+<h2>for( i in arr)..............</h2>
+<script type="text/javascript">
+
+var arr = new Array(11,22,33);
+arr[6] = 100;
+
+for( var i in arr){
+	document.write( i, " : ", arr[i], "<br>");
+}
+</script> 
+
+<h2>整體陣列的操作</h2>
+<script type="text/javascript">
+var arr = new Array(11,22,33);
+var arr2 = arr;
+arr2[1] = 666;
+
+for( var i in arr){
+	document.write( i, " : ", arr[i], "<br>");
+}	
+</script>
+
+
+<h2>陣列轉字串 : 自己做</h2>
+<script type="text/javascript">
+var arr = new Array(11,22,33);
+var str = "";
+
+for( var i=0; i<arr.length-1; i++){ 
+  str = str + arr[i] + ","; //"11,22,"
+}	
+str = str + arr[i];  
+
+document.write( str, "<br>");
+</script>
+
+<h2>陣列轉字串 : toString(), join()</h2>
+<script type="text/javascript">
+var arr = new Array(11,22,33);
+
+document.write( arr.toString() , "<br>");
+document.write( arr.join() , "<br>"); //以,來串接
+document.write( arr.join("@_@") , "<br>");
+
+document.write( arr , "<br>"); //没有指出其細節的部分(如arr[1]) , 則會自動呼叫該物件的toString();
+</script>
+
+<h2>push() : 將資料放到到陣列的最後面 </h2>
+<script type="text/javascript">
+var arr = new Array(11,22,33);
+
+arr[arr.length] = 100; //使用陣列所提供的length
+arr[arr.length] = 200;
+arr.push( 1000); //使用陣列所提供的方法
+document.write( arr, "<br>");
+</script>
+
+<h2>pop() : 將資料自陣列的後面移出一個元素 </h2>
+<script type="text/javascript">
+var arr = new Array(11,22,33);
+var data = arr.pop();
+document.write( "移出的資料是: ", data, "<br>"); //33
+document.write( "陣列內容: ", arr, "<br>"); //11,22
+</script>
+
+<h2>unshift() : 將資料insert到到陣列的最前面 </h2>
+<script type="text/javascript">
+var arr = new Array(11,22,33);
+arr.unshift(1000);
+document.write( arr, "<br>"); //1000,11,22,33
+</script>
+
+<h2>shift() : 將資料自陣列的前面移出一個元素 </h2>
+<script type="text/javascript">
+var arr = new Array(11,22,33);
+var data = arr.shift();
+document.write( "移出的資料是: ", data, "<br>"); 
+document.write( "陣列內容: ", arr, "<br>"); 
+</script>
+
+<h2>將資料insert到陣列中特定位置 : 自己做</h2>
+<script type="text/javascript">
+var arr = new Array(11,22,33,44,55,66,77);
+for( var i = arr.length-1; i >= 3; i--){  //
+  arr[i+1] = arr[i];  
+}
+arr[3] = 100;
+document.write( arr, "<br>");
+</script>
+
+
+<h2>slice(start,end)</h2>
+<script type="text/javascript">
+var arr = new Array(11,22,33,44,55,66,77);
+var arr2 = arr.slice(3,5); //44,55
+document.write( arr, "<br>");
+document.write( arr2, "<br>");
+</script>
+
+<h2>splice(start,n,data1, data2,....)</h2>
+<script type="text/javascript">
+var arr = new Array(11,22,33,44,55,66,77,88,99);
+var arr2 = arr.splice(3,5,100,200); 
+document.write( arr, "<br>"); //11,22,33,100,200,99
+document.write( arr2, "<br>");//44,55,66,77,88
+</script>
+
+<h2>利用splice()將資料insert到特定的位置</h2>
+<script type="text/javascript">
+var arr = new Array(11,22,33,44,55,66,77,88,99);
+var arr2 = arr.splice(3,0,100); 
+document.write( arr, "<br>"); 
+</script>
+
+<h2>利用splice()刪除陣列中特定位置的資料</h2>
+<script type="text/javascript">
+var arr = new Array(11,22,33,44,55,66,77,88,99);
+var arr2 = arr.splice(3,1); 
+document.write( arr, "<br>"); 
+</script>
+
+<h2>找資料</h2>
+<script type="text/javascript">
+var arr = new Array(11,22,33,44,55,66,77,88,99);
+var index = arr.indexOf(55);	
+document.write("55在陣列中的索引 :", index, "<br>");
+var index2 = arr.indexOf(5555);	  // 找不到傳回-1
+document.write("5555在陣列中的索引 :", index2, "<br>");
+</script>
+
+</body>
+</html>

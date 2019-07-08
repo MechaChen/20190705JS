@@ -1,0 +1,36 @@
+<!DOCTYPE html >
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>點小圖秀大圖</title>
+</head>
+
+<body>
+<div style="width:202px;height:185px;">
+<img  id="large" src="images/big/M1_001.gif">
+</div>
+<div>
+<img src="images/small/M1_SP_001.gif" class="small">
+<img src="images/small/M1_SP_002.gif" class="small"> <!-- images/big/M1_002.gif -->
+<img src="images/small/M1_SP_003.gif" class="small">
+<img src="images/small/M1_SP_004.gif" class="small">
+<img src="images/small/M1_SP_005.gif" class="small">
+</div>
+<script>
+
+
+window.addEventListener("load", function (){
+	  var smalls = document.getElementsByClassName("small");
+	  for( var i=0; i<smalls.length; i++){
+	  	smalls[i].addEventListener("click", function (e){
+			  var small = e.target;
+
+			  document.getElementById("large").src = small.src.replace("small","big").replace("SP_","");
+			}, false);
+	  }
+}, false);
+
+
+</script>
+</body>
+</html>

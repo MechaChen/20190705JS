@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Examples</title>
+</head>
+<body>
+
+<h2>區域, 全域危險的範例</h2>
+<!-- <script type="text/javascript" src="DD101G1.js"></script> -->
+<script type="text/javascript">
+function sum(){ 
+	total = 0;  //i, total會用到外層的total變數
+
+	for( i=0; i<arguments.length; i++){
+		total = total + arguments[i];
+	}
+	return total;
+}
+
+var i = 666; //i : 用來記錄 訂單的總筆數
+var total = 0; //total : 用來記錄 訂單的總金額
+
+var subTotal = sum(11,22);
+document.write( "subTotal :", subTotal, "<br>");
+
+document.write( "i :", i, "<br>"); //i 的值被污染了
+document.write( "total :", total, "<br>");
+</script>    
+</body>
+</html>

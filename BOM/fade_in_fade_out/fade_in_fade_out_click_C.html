@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Fade in, Fade out(onclick) </title>
+</head>
+<body>
+<center>
+<input type="button" id="btnInOut" value="淡出"><br>
+<img src="melon.gif" alt="小玉" id="img1" style="opacity:1"> 	
+</center>
+</body>
+</html>
+<script>
+var opacity=1;
+
+function $id(id){
+  return document.getElementById(id);
+}
+
+function fadeOut(){ //淡出
+	var btn = $id("btnInOut");
+	opacity -= 0.05;
+	$id("img1").style.opacity = opacity;
+	if( opacity < 0){
+		clearInterval(timerId);
+		btn.value="淡入";
+		btn.disabled = false;
+	}
+}
+
+function fadeIn(){ //淡入
+	var btn = $id("btnInOut");
+	opacity += 0.05;
+	$id("img1").style.opacity = opacity;
+	if( opacity > 1){
+		clearInterval(timerId);
+		btn.value="淡出";
+		btn.disabled = false;
+	}
+}
+
+function changeOpacity(){
+	var btn = $id("btnInOut");
+
+	if( btn.value == "淡出"){
+		timerId = setInterval( fadeOut, 100 );
+	}else{
+		timerId = setInterval( fadeIn, 100 );
+	}
+	
+	btn.disabled = true;
+}
+
+//點下去做淡入/淡出的切換
+function init(){
+	//...設定變數的初始值
+
+	//...設定事件處理器
+	$id("btnInOut").onclick = changeOpacity;
+
+}
+
+window.addEventListener("load", init, false);
+
+</script>

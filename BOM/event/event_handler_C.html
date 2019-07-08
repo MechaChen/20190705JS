@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Examples</title>
+</head>
+<body>
+
+<input type="button" name="btn" value="10+20 = ? [0]" onclick="showAns();">
+<input type="button" name="btn" value="10+20 = ? [1]">
+<input type="button" name="btn" value="10+20 = ? [2]">
+
+<script type="text/javascript">
+function showAns(){
+	var a=10; 
+	var b=20; 
+	window.alert(a+b)
+}	
+
+function noAns(){
+	window.alert("不告訢你!!");
+}
+
+function forFun(){
+	window.alert("^________________^");
+	btns[2].removeEventListener("click", forFun, false);
+	btns[2].addEventListener("click", showAngry, false);
+}
+
+function showAngry(){
+	window.alert(">_< |||")
+}
+
+
+var btns = document.getElementsByName("btn");
+
+//js 註冊事件處理器......1
+
+btns[1].onclick = showAns;//會被下一列的事件屬性覆寫
+btns[1].onclick = noAns;
+
+//js 註冊事件處理器......2
+btns[2].addEventListener("click", showAns, false);
+btns[2].addEventListener("click", forFun, false);
+</script>   
+
+
+</body>
+</html>

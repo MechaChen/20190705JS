@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Examples</title>
+</head>
+<body>
+	<h2>區域, 全域</h2>
+<script type="text/javascript">
+var a;
+a = 10;
+
+var b = 20;
+
+c = 30;
+
+function test( mm ){
+	var d = 40;
+	a = 100;
+	d = 400;
+	e = 500;
+}
+
+test();
+
+document.write( "a :", a, "<br>");	
+document.write( "b :", b, "<br>");	
+document.write( "c :", c, "<br>");
+	
+document.write( "e :", e, "<br>");
+document.write( "d :", d, "<br>");	//error
+</script>    
+</body>
+</html>
